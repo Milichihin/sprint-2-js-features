@@ -9,4 +9,15 @@ document.getElementById("app").innerHTML = `
 </div>
 `;
 
-console.log("hello");
+//============ FILTER ================
+
+const filterNums = (/* arguments */) => {
+  //some code
+  return /* answer */;
+};
+
+filterNums([-1, 2, 4, 0, 55, -12, 3], 11, "greater"); //[ 55]
+// filterNums([-2, 2, 3, 0, 43, -13, 6], 6, 'less'); // [-2, 2, 3, 0, -13]
+// filterNums([-2, 2, 3, 0, 43, -13, 6], -33, 'less'); //  []
+// filterNums([-2, 2, 3, 0, 43, -13, 6]); // [2, 3, 43, 6]
+// filterNums([-2, 2, 3, 0, 43, -13, 6], 23);  // [43]
