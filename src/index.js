@@ -46,13 +46,32 @@ Practical tasks. Features ES 2015 - 2019.
 // Output how many seconds are in all this.
 // All parameters are optional. Consider 30 days in a month
 
-const howMuchSec = (...time) => {
-  // const sec = seconds + minutes*60 + hours*360 + days*8640 + weeks*60480 + months*1814400 + years*21772800;
+const howMuchSec = (...input) => {
+  let arrOfSeconds = [];
+  for (let i = 0; i < input.length; i++) {
+    if (i === 0) {
+      arrOfSeconds.push(input[i]); // seconds
+    } else if (i === 1) {
+      arrOfSeconds.push(input[i] * 60); // minute
+    } else if (i === 2) {
+      arrOfSeconds.push(input[i] * 3600); // hour
+    } else if (i === 3) {
+      arrOfSeconds.push(input[i] * 86400); // day
+    } else if (i === 4) {
+      arrOfSeconds.push(input[i] * 604800); // week
+    } else if (i === 5) {
+      arrOfSeconds.push(input[i] * 18144000); // month
+    } else if (i === 6) {
+      arrOfSeconds.push(input[i] * 217728000); // year
+    }
+  }
 
-  const sec = time.reduce((previous, current, i) => {}, []);
-  return console.log(sec);
+  const sumOfSeconds = arrOfSeconds.reduce((previous, current) => {
+    return previous + current;
+  }, 0);
+  return console.log(sumOfSeconds);
 };
 
 howMuchSec(12, 3); //192
-// howMuchSec(1, 33, 22); //81181
-// howMuchSec(); //0
+howMuchSec(1, 33, 22); //81181
+howMuchSec(); //0
