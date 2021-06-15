@@ -49,9 +49,7 @@ Practical tasks. Features ES 2015 - 2019.
 const howMuchSec = (...time) => {
   // const sec = seconds + minutes*60 + hours*360 + days*8640 + weeks*60480 + months*1814400 + years*21772800;
 
-  const sec = time.reduce((previous, current) => {
-    return previous + current;
-  }, []);
+  const sec = time.reduce((previous, current, i) => {}, []);
   return console.log(sec);
 };
 
