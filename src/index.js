@@ -46,31 +46,29 @@ Practical tasks. Features ES 2015 - 2019.
 // Output how many seconds are in all this.
 // All parameters are optional. Consider 30 days in a month
 
-const howMuchSec = (...input) => {
-  let arrOfSeconds = [];
-  for (let i = 0; i < input.length; i++) {
-    if (i === 0) {
-      arrOfSeconds.push(input[i]); // seconds
-    } else if (i === 1) {
-      arrOfSeconds.push(input[i] * 60); // minute
-    } else if (i === 2) {
-      arrOfSeconds.push(input[i] * 3600); // hour
-    } else if (i === 3) {
-      arrOfSeconds.push(input[i] * 86400); // day
-    } else if (i === 4) {
-      arrOfSeconds.push(input[i] * 604800); // week
-    } else if (i === 5) {
-      arrOfSeconds.push(input[i] * 18144000); // month
-    } else if (i === 6) {
-      arrOfSeconds.push(input[i] * 217728000); // year
-    }
-  }
+// const howMuchSec = (...input) => {
+//   let arrOfSeconds = [];
+//   for (let i = 0; i < input.length; i++) {
+//     i === 0
+//       ? arrOfSeconds.push(input[i])
+//       : i === 1
+//       ? arrOfSeconds.push(input[i] * 60)
+//       : i === 2
+//       ? arrOfSeconds.push(input[i] * 3600)
+//       : i === 3
+//       ? arrOfSeconds.push(input[i] * 86400)
+//       : i === 4
+//       ? arrOfSeconds.push(input[i] * 604800)
+//       : i === 5
+//       ? arrOfSeconds.push(input[i] * 18144000)
+//       : arrOfSeconds.push(input[6] * 217728000);
+//   }
 
-  const sumOfSeconds = arrOfSeconds.reduce((previous, current) => {
-    return previous + current;
-  }, 0);
-  return console.log(sumOfSeconds);
-};
+//   const sumOfSeconds = arrOfSeconds.reduce((previous, current) => {
+//     return previous + current;
+//   }, 0);
+//   return console.log(sumOfSeconds);
+// };
 
 // howMuchSec(12, 3); //192
 // howMuchSec(1, 33, 22); //81181
@@ -82,13 +80,12 @@ const howMuchSec = (...input) => {
 
 const maxInterv = (...nums) => {
   let arr = [];
-  nums.reduce((prev, curr) => {
-    arr.push(Math.abs(prev - curr));
-    return curr;
-  });
-  // console.log(nums);
-  // console.log(arr);
-
+  if (nums.length > 1) {
+    nums.reduce((prev, curr) => {
+      arr.push(Math.abs(prev - curr));
+      return curr;
+    });
+  } else arr.push(0);
   return Math.max(...arr);
 };
 
