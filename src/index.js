@@ -30,9 +30,9 @@ Practical tasks. Features ES 2015 - 2019.
 // The function takes any number of strings and returns the sum of their lengths.
 
 // const sumOfLen = (...strings) => {
-//   return strings.reduce((previous, current) => {
-//     return previous + current;
-//   }, []).length;
+// return strings.reduce((previous, current) => {
+//   return previous + current;
+// }, []).length;
 // };
 
 // console.log(sumOfLen("hello", "hi")); //7
@@ -72,6 +72,29 @@ const howMuchSec = (...input) => {
   return console.log(sumOfSeconds);
 };
 
-howMuchSec(12, 3); //192
-howMuchSec(1, 33, 22); //81181
-howMuchSec(); //0
+// howMuchSec(12, 3); //192
+// howMuchSec(1, 33, 22); //81181
+// howMuchSec(); //0
+
+//======================================================
+
+//Find the maximum interval between two consecutive numbers. Numbers are entered as arguments
+
+const maxInterv = (...nums) => {
+  let arr = [];
+  nums.reduce((prev, curr) => {
+    arr.push(Math.abs(prev - curr));
+    return curr;
+  });
+  // console.log(nums);
+  // console.log(arr);
+
+  return Math.max(...arr);
+};
+
+console.log(maxInterv(3, 5, 2, 7)); //5
+console.log(maxInterv(3, 5, 2, 7, 11, 0, -2)); //11
+console.log(maxInterv(3, 5)); //2
+console.log(maxInterv(3)); //0
+
+// console.log(maxInterv(3));
